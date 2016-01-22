@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="1314.0" style="-fx-background-color: lightblue" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <TextField fx:id="input" layoutX="101.0" layoutY="499.0" prefHeight="71.0" prefWidth="644.0" style="-fx-background-color:burlywood" />
+      <VBox layoutX="1000.0" layoutY="76.0" prefHeight="135.0" prefWidth="166.0" style="-fx-background-color: #2132;">
+         <children>
+            <Label fx:id="timer1" alignment="CENTER" prefHeight="135.0" prefWidth="166.0" style="-fx-font-size: 80;" text="10" textAlignment="CENTER" />
+         </children>
+      </VBox>
+      <VBox layoutX="1000.0" layoutY="256.0" prefHeight="135.0" prefWidth="166.0" style="-fx-background-color: #2132;">
+         <children>
+            <Label fx:id="timer2" alignment="CENTER" contentDisplay="CENTER" prefHeight="135.0" prefWidth="170.0" style="-fx-font-size: 80;" text="0" textAlignment="JUSTIFY" />
+         </children>
+      </VBox>
+      <VBox layoutX="1000.0" layoutY="444.0" prefHeight="135.0" prefWidth="207.0" style="-fx-background-color: #2132;">
+         <children>
+            <Label fx:id="timer3" alignment="CENTER" contentDisplay="CENTER" prefHeight="135.0" prefWidth="215.0" style="-fx-font-size: 80;" text="100%" textAlignment="JUSTIFY" />
+         </children>
+      </VBox>
+      <TextFlow fx:id="param" layoutX="101.0" layoutY="70.0" prefHeight="218.0" prefWidth="644.0" style="-fx-background-color: burlywood;-fx-padding: 15px" />
+      <Label alignment="CENTER" layoutX="1070.0" layoutY="419.0" prefHeight="25.0" prefWidth="68.0" text="ACCURACY" textAlignment="JUSTIFY" />
+      <Label alignment="CENTER" layoutX="1206.0" layoutY="294.0" prefHeight="60.0" prefWidth="68.0" text="WPM" />
+   </children>
+</AnchorPane>
