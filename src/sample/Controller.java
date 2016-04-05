@@ -69,62 +69,56 @@ public class Controller implements Initializable{
         t1.setText(paragraph);
         param.getChildren().addAll(t2, t1);
         timer1.textProperty().bind(timeSeconds.asString());
-        timeSeconds.addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                timer2.setText(String.valueOf(60*words/newValue.intValue()));
-            }
+        timeSeconds.addListener((observable, oldValue, newValue) -> {
+            timer2.setText(String.valueOf(60*words/newValue.intValue()));
         });
 
-        input.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+        input.textProperty().addListener((observable, oldValue, newValue) -> {
 
-                if (timeline == null) {
-                    timeSeconds.set(STARTTIME);
-                    timeline = new Timeline();
-                    timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(100), new KeyValue(timeSeconds, 100)));
-                    timeline.setOnFinished(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent event) {
-                            input.setEditable(false);
-                        }
-                    });
-                    timeline.playFromStart();
-                }
-
-                Temp = Cursor + newValue.length() - 1;
-
-                if (newValue.length() != 0) {
-                    if (paragraph.charAt(Temp) == newValue.charAt(newValue.length() - 1) && (newValue.length() - 1) <= err) {
-                        if (err != 20) {
-                            err = 20;
-                        }
-                        anchor.setStyle("-fx-background-color:lightblue");
-                        t1.setText(paragraph.substring(Temp + 1, paragraph.length()));
-                        t2.setText(paragraph.substring(0, Temp + 1));
-                    } else {
-                        if (err > (newValue.length() - 1) && (newValue.length() - 1) != -1) {
-                            anchor.setStyle("-fx-background-color: red");
-                            errors++;
-                            timer3.setText(String.valueOf(100 - (errors * 47 / 100)) + "%");
-                            err = newValue.length() - 1;
-                        }
-
+            if (timeline == null) {
+                timeSeconds.set(STARTTIME);
+                timeline = new Timeline();
+                timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(100), new KeyValue(timeSeconds, 100)));
+                timeline.setOnFinished(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        input.setEditable(false);
                     }
-                    if (newValue.charAt(newValue.length() - 1) == ' ' && (newValue.length() - 1) < err) {
-                        Cursor = Temp + 1;
-                        words++;
-                        input.setText("");
+                });
+                timeline.playFromStart();
+            }
+
+            Temp = Cursor + newValue.length() - 1;
+
+            if (newValue.length() != 0) {
+                if (paragraph.charAt(Temp) == newValue.charAt(newValue.length() - 1) && (newValue.length() - 1) <= err) {
+                    if (err != 20) {
+                        err = 20;
                     }
+                    anchor.setStyle("-fx-background-color:lightblue");
+                    t1.setText(paragraph.substring(Temp + 1, paragraph.length()));
+                    t2.setText(paragraph.substring(0, Temp + 1));
                 } else {
-                    if (Temp == -1) {
-                        t2.setText("");
-                        t1.setText(paragraph);
-                    } else {
-                        t1.setText(paragraph.substring(Temp + 1, paragraph.length()));
-                        t2.setText(paragraph.substring(0, Temp + 1));
+                    if (err > (newValue.length() - 1) && (newValue.length() - 1) != -1) {
+                        anchor.setStyle("-fx-background-color: red");
+                        errors++;
+                        timer3.setText(String.valueOf(100 - (errors * 47 / 100)) + "%");
+                        err = newValue.length() - 1;
                     }
+
+                }
+                if (newValue.charAt(newValue.length() - 1) == ' ' && (newValue.length() - 1) < err) {
+                    Cursor = Temp + 1;
+                    words++;
+                    input.setText("");
+                }
+            } else {
+                if (Temp == -1) {
+                    t2.setText("");
+                    t1.setText(paragraph);
+                } else {
+                    t1.setText(paragraph.substring(Temp + 1, paragraph.length()));
+                    t2.setText(paragraph.substring(0, Temp + 1));
                 }
             }
         });

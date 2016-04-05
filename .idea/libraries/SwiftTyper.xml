@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SwiftTyper">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/SwiftTyper/SwiftTyper.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
