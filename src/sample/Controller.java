@@ -17,13 +17,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
-import org.glassfish.tyrus.server.Server;
-
-import javax.websocket.*;
-import javax.websocket.server.ServerEndpoint;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
@@ -36,9 +29,10 @@ public class Controller implements Initializable{
     private IntegerProperty timeSeconds =
             new SimpleIntegerProperty(STARTTIME);
     @FXML
-    private String paragraph="The beginning of the Cold War: On March 5, 1946, Winston Churchill, former Prime Minister of Great Britain, delivered a"+
-    "speech at Westminster College in Fulton, Missouri, in which he gave public recognition to the division that had arisen between"+
-    "the former Allies from World War 2.";
+    private String paragraph="The Moon is a barren, rocky world without air and water. " +
+            "It has dark lava plain on its surface. The Moon is filled with craters." +
+            " It has no light of its own. It gets its light from the Sun. " +
+            "The Moon keeps changing its shape as it moves round the Earth." ;
 
     int Cursor=0;
     int Temp;
@@ -67,18 +61,12 @@ public class Controller implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         input.setStyle("-fx-font-size: 30px;-fx-text-fill: cornflowerblue;-fx-font-weight:bold");
         final Text t1 = new Text();
-        ServerWebsocket.input=input;
 
         t1.setStyle("-fx-fill:cornflowerblue;-fx-font-weight:bold;-fx-font-size:30px");
         final Text t2 = new Text();
         t2.setStyle("-fx-fill: #4F8A10;-fx-font-weight:bold;-fx-font-size:30px");
         t2.setText("");
         t1.setText(paragraph);
-        try {
-            runServer();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         param.getChildren().addAll(t2, t1);
         timer1.textProperty().bind(timeSeconds.asString());
         timeSeconds.addListener(new ChangeListener<Number>() {
@@ -140,20 +128,5 @@ public class Controller implements Initializable{
                 }
             }
         });
-    }
-
-    public void runServer() throws InterruptedException {
-        Server server = new Server("localhost", 8024, "/websockets",null,ServerWebsocket.class);
-        try {
-            server.start();
-            //BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            //System.out.print("Please press a key to stop the server.");
-            //reader.readLine();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        } finally {
-
-            // server.stop();
-        }
     }
 }

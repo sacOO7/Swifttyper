@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SwiftTyper.iml" filepath="$PROJECT_DIR$/SwiftTyper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Swifttyper.iml" filepath="$PROJECT_DIR$/Swifttyper.iml" />
     </modules>
   </component>
 </project>
