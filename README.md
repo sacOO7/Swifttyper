@@ -1,10 +1,9 @@
 # Swifttyper
-Swifttyper is a ***Desktop*** Application for measuring typing speed.It gives speed in terms of *Words per Minute*.
-It also shows typing accuracy.
+Swifttyper is a ***Desktop*** Application for measuring typing speed in terms of *Words per Minute* along with *typing accuracy*.
 
 # Implementation
-The traditional framework (Swing) used for GUI programming in java has been deprecated . So the high performance GUI applications can be developed using modern framework named JavaFX .Swifttyper is developed by using javafx framework in java.  
+The traditional framework **Swing** used for GUI programming in java is now deprecated. So latest high performance GUI applications are developed using JavaFX. Swifttyper is developed using javafx framework in java.  
 
-For more information do visit :
+To know difference between swing and javaFX do visit :
 
 http://www.dummies.com/how-to/content/10-differences-between-javafx-and-swing.html
