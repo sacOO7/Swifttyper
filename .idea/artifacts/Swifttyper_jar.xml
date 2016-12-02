@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Swifttyper:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Swifttyper_jar</output-path>
+    <root id="archive" name="Swifttyper.jar">
+      <element id="module-output" name="Swifttyper" />
+    </root>
+  </artifact>
+</component>
