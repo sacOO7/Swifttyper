@@ -5,8 +5,6 @@ import javafx.animation.Timeline;
 import javafx.animation.KeyValue;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -19,8 +17,6 @@ import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
-
 
 public class Controller implements Initializable{
 
@@ -66,6 +62,7 @@ public class Controller implements Initializable{
         final Text t2 = new Text();
         t2.setStyle("-fx-fill: #4F8A10;-fx-font-weight:bold;-fx-font-size:30px");
         t2.setText("");
+
         t1.setText(paragraph);
         param.getChildren().addAll(t2, t1);
         timer1.textProperty().bind(timeSeconds.asString());
@@ -102,7 +99,7 @@ public class Controller implements Initializable{
                     if (err > (newValue.length() - 1) && (newValue.length() - 1) != -1) {
                         anchor.setStyle("-fx-background-color: red");
                         errors++;
-                        timer3.setText(String.valueOf(100 - (errors * 47 / 100)) + "%");
+                        timer3.setText(String.valueOf(100 - (errors * 47 / 100)));
                         err = newValue.length() - 1;
                     }
 
