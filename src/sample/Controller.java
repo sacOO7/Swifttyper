@@ -72,6 +72,13 @@ public class Controller implements Initializable{
 
         input.textProperty().addListener((observable, oldValue, newValue) -> {
 
+//            System.out.println("New value is "+ newValue);
+
+            if (t2.getText().equals(paragraph)){
+                timeline.stop();
+                input.setEditable(false);
+                input.setText("");
+            }
             if (timeline == null) {
                 timeSeconds.set(STARTTIME);
                 timeline = new Timeline();
