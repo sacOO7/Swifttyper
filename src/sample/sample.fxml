@@ -7,7 +7,7 @@
 
 <AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="707.0" prefWidth="1314.0" style="-fx-background-color: lightblue" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <TextField fx:id="input" layoutX="101.0" layoutY="499.0" prefHeight="71.0" prefWidth="644.0" style="-fx-background-color:burlywood" />
+      <TextField fx:id="input" layoutX="57.0" layoutY="542.0" prefHeight="69.0" prefWidth="874.0" style="-fx-background-color:burlywood" />
       <VBox layoutX="1003.0" layoutY="55.0" prefHeight="135.0" prefWidth="198.0" style="-fx-background-color: #2132;">
          <children>
             <Label fx:id="timer1" alignment="CENTER" prefHeight="135.0" prefWidth="199.0" style="-fx-font-size: 80;" text="10" textAlignment="CENTER" />
@@ -23,7 +23,7 @@
             <Label fx:id="timer3" alignment="CENTER" contentDisplay="CENTER" prefHeight="144.0" prefWidth="201.0" style="-fx-font-size: 80;" text="100" textAlignment="JUSTIFY" />
          </children>
       </VBox>
-      <TextFlow fx:id="param" layoutX="101.0" layoutY="70.0" prefHeight="218.0" prefWidth="644.0" style="-fx-background-color: burlywood;-fx-padding: 15px" />
+      <TextFlow fx:id="param" layoutX="57.0" layoutY="52.0" prefHeight="432.0" prefWidth="874.0" style="-fx-background-color: burlywood;-fx-padding: 15px" />
       <Label alignment="CENTER" layoutX="1054.0" layoutY="424.0" prefHeight="25.0" prefWidth="106.0" text="Accuracy" textAlignment="JUSTIFY" />
       <Label alignment="CENTER" layoutX="1052.0" layoutY="211.0" prefHeight="37.0" prefWidth="106.0" text="Words/Minute" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1197.0" layoutY="469.0" prefHeight="145.0" prefWidth="94.0" style="-fx-font-size: 80;" text="\%" textAlignment="JUSTIFY" />

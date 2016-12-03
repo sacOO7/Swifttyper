@@ -1,8 +1,10 @@
 package sample;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
@@ -15,6 +17,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
+
+import java.io.BufferedReader;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,11 +28,9 @@ public class Controller implements Initializable{
     private Timeline timeline;
     private IntegerProperty timeSeconds =
             new SimpleIntegerProperty(STARTTIME);
-    @FXML
-    private String paragraph="The Moon is a barren, rocky world without air and water. " +
-            "It has dark lava plain on its surface. The Moon is filled with craters." +
-            " It has no light of its own. It gets its light from the Sun. " +
-            "The Moon keeps changing its shape as it moves round the Earth." ;
+
+    private String paragraph;
+
 
     int Cursor=0;
     int Temp;
@@ -37,7 +39,7 @@ public class Controller implements Initializable{
     int  err=20;
 
     @FXML
-    private Label timer1;
+    private Label timer1;;
     @FXML
     private Label timer2;
     @FXML
@@ -49,12 +51,11 @@ public class Controller implements Initializable{
     @FXML
     private AnchorPane anchor;
 
-
-
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        paragraph=Paragraphs.getrandompara();
+
         input.setStyle("-fx-font-size: 30px;-fx-text-fill: cornflowerblue;-fx-font-weight:bold");
         final Text t1 = new Text();
 
@@ -74,11 +75,7 @@ public class Controller implements Initializable{
 
 //            System.out.println("New value is "+ newValue);
 
-            if (t2.getText().equals(paragraph)){
-                timeline.stop();
-                input.setEditable(false);
-                input.setText("");
-            }
+
             if (timeline == null) {
                 timeSeconds.set(STARTTIME);
                 timeline = new Timeline();
@@ -124,6 +121,14 @@ public class Controller implements Initializable{
                     t1.setText(paragraph.substring(Temp + 1, paragraph.length()));
                     t2.setText(paragraph.substring(0, Temp + 1));
                 }
+            }
+
+            if (t2.getText().equals(paragraph)){
+                timeline.stop();
+                input.setEditable(false);
+                input.setText("");
+                t2.setText(paragraph);
+                t1.setText("");
             }
         });
     }
